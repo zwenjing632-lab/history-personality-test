@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f9fc"><meta name="app-version" content="light-theme-v1"><title>历史回响｜24题人格探索</title><style>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f9fc"><meta name="app-version" content="experience-v4-20261021"><title>历史回响｜24题人格探索</title><style>
 :root{font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:#f4f0e9;background:#0d1423}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 75% 0%,#29324b 0,transparent 45%),#0d1423}button{font:inherit;cursor:pointer}main{max-width:770px;margin:auto;padding:30px 18px 70px}.brand{letter-spacing:.25em;color:#d3b782;font-size:12px;font-weight:700}.panel{background:#182236;border:1px solid #354056;border-radius:22px;padding:28px;margin-top:24px;box-shadow:0 20px 50px #0002}h1{font-size:clamp(36px,8vw,58px);line-height:1.12;margin:16px 0}h2{font-size:26px;margin:6px 0 14px}h3{font-size:19px;margin:24px 0 10px}.muted{color:#aab5c7;line-height:1.85}.gold{color:#e6c68d}.btn{border:0;background:#d9b77c;color:#1c2230;padding:14px 22px;border-radius:12px;font-weight:750}.btn.secondary{background:#303c50;color:#f7f4ed}.btn:disabled{opacity:.4;cursor:not-allowed}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}.eyebrow{color:#d9b77c;font-size:13px;letter-spacing:.12em}.progress{height:8px;border-radius:10px;background:#364055;overflow:hidden;margin:18px 0}.progress div{height:100%;background:linear-gradient(90deg,#b98c57,#f4dba8);transition:width .25s}.question{border-top:1px solid #354056;padding:22px 0}.question:first-of-type{border:0}.question b{display:block;line-height:1.7;margin-bottom:13px}.option{display:block;width:100%;text-align:left;border:1px solid #435067;border-radius:12px;padding:13px 15px;background:#202d43;color:#e9edf5;margin:9px 0;line-height:1.6}.option.selected{border-color:#eac88b;background:#3c3b3b;box-shadow:inset 0 0 0 1px #eac88b}.pill{display:inline-block;border:1px solid #806d4c;border-radius:99px;padding:7px 13px;color:#e9c88e;font-size:13px}.trait{margin:16px 0}.trait .row{display:flex;justify-content:space-between;margin-bottom:6px}.track{height:9px;border-radius:9px;background:#354055;overflow:hidden}.fill{height:100%;border-radius:9px;background:linear-gradient(90deg,#728cba,#e5c58a)}.person{border:1px solid #435067;border-radius:16px;padding:18px;margin:14px 0;background:#202d43}.person .rank{color:#eac88b;font-size:13px}.person h3{margin:7px 0}.note{border-left:3px solid #d9b77c;padding:10px 16px;background:#222d3e;color:#c8d1de;line-height:1.8}.small{font-size:13px;color:#aab5c7;line-height:1.8}footer{font-size:12px;color:#8593a9;margin-top:32px;text-align:center}canvas{max-width:100%;display:block;margin:auto}.hidden{display:none} @media(max-width:520px){.panel{padding:20px}.actions .btn{flex:1}h2{font-size:23px}}
 .profile{margin-top:24px;padding:18px;border:1px solid #43506a;border-radius:16px;background:#111a2b}.profile h3{margin:0 0 10px}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.profile label{display:block;font-size:14px;color:#d4dbea;margin:10px 0 7px}.profile select{width:100%;background:#26344a;color:#fff;border:1px solid #596780;border-radius:10px;padding:12px;font:inherit}.profile small{color:#aab5c7;line-height:1.6;display:block;margin-top:12px}@media(max-width:520px){.profile-grid{grid-template-columns:1fr}}  .compare{margin-top:14px;padding:12px 14px;background:#18243a;border:1px solid #3d4b66;border-radius:12px}.compare p{margin:7px 0;line-height:1.7}.compare .small{font-size:12px;color:#aebbd0} 
 .person-fold{margin-top:14px;border:1px solid #44516b;border-radius:14px;background:#152035;overflow:hidden}
@@ -37,6 +37,19 @@ h1,h2,h3{color:#142b50}.gold,.eyebrow{color:#bd8844}
 canvas{background:#fff;border-radius:16px}
 @media(min-width:800px){.panel{padding:36px 42px}.person{padding:24px}.profile-grid{gap:22px}}
 @media(max-width:520px){main{padding:20px 14px 65px}.panel{padding:22px 18px;border-radius:16px}.brand{font-size:12px;letter-spacing:.09em}.person{padding:15px}}
+/* Mobile and keyboard interaction */
+button,select{min-height:44px;touch-action:manipulation}
+button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #2563eb;outline-offset:3px}
+.option{min-height:52px;overflow-wrap:anywhere}
+@media(max-width:520px){.actions{gap:9px}.actions .btn{min-width:125px}.person-fold>summary{line-height:1.6}h1{font-size:clamp(30px,9vw,45px)}.note{font-size:14px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* V4 report, sharing and accessibility */
+.insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:15px 0}
+.insight{background:#f8faff;border:1px solid #e3eaf4;border-radius:14px;padding:16px;line-height:1.8}
+.insight strong{color:#1b457e}.insight p{color:#516783;margin:7px 0 0;font-size:14px}
+.story{background:#fffaf3;border-left:3px solid #d2a569;padding:13px 15px;margin-top:14px;border-radius:8px;color:#594e40;line-height:1.8}
+@media(max-width:540px){.insight-grid{grid-template-columns:1fr}}
 </style></head><body><main><div class="brand">HISTORICAL ECHOES · 历史回响</div><section id="app"><div class="panel"><span class="pill">24题 · 约8分钟 · 免费</span><h1>如果你生活在历史中，<span class="gold">会是谁？</span></h1><p class="muted">面对机会、竞争、亲密关系和人生抉择，你会做出怎样的选择？通过24道情境题，探索你的八维人格，并发现与你的价值取向相似的历史人物。</p><div class="note">这是探索性娱乐测试，不是专业心理诊断。请通过 Safari 或 Chrome 打开正式网站进行答题。</div><div class="actions"><button class="btn" id="start" onclick="if(window.startHistoricalQuiz)window.startHistoricalQuiz();else alert('当前文件预览可能禁止运行脚本，请在 Safari 打开 GitHub Pages 网站。')">开始探索</button></div></div></section><footer>探索性娱乐测试 · 非专业心理诊断 · 答案仅保存在当前浏览器中</footer></main><script>
 const DATA=[
 ['当你面前出现一个可能改变人生的机会，但失败风险很高，你会？',['即使害怕，也愿意尝试','先调查清楚，评估风险后再决定','优先选择稳定、安全的道路','询问重要的人，希望获得支持']],
@@ -46,23 +59,23 @@ const DATA=[
 ['进入一个陌生的群体时，你通常会？',['主动认识别人，争取成为核心','先观察环境和人物，再决定如何相处','优先寻找一两个能够信任的人','保持独立，不太在意能否融入']],
 ['如果你努力了很久，最终却失败了，你的第一反应更接近？',['不甘心，想尽快再次挑战','分析失败原因，重新制定计划','怀疑自己的能力，需要时间恢复','重新评估目标，考虑换一条道路']],
 ['假如你和一位能力很强的朋友同时竞争一个重要机会，而你们只有一个人能成功，你会？',['全力竞争，友情和竞争应该分开','公平竞争，但尽量不伤害彼此关系','如果对方更需要，可能主动让步','表面正常竞争，私下寻找自己的优势']],
-['如果你发现自己一直相信的某个观念其实是错误的，你会？',['迅速承认错误，改变想法','认真研究证据，再决定是否改变','感到难以接受，需要一段时间消化','即使知道可能错了，也很难放弃原来的坚持']],
+['如果你发现自己一直相信的某个观念其实是错误的，你会？',['迅速承认错误，改变想法','认真研究证据，再决定是否改变','感到难以接受，需要一段时间消化','我会先保留原有看法，等有更多证据再调整']],
 ['假如你突然成为一个组织的领导者，你最想优先做什么？',['制定清晰目标，让大家取得成绩','了解每个人的需求，建立信任','改革原有制度，创造新的发展机会','建立稳定秩序，尽量减少内部矛盾']],
 ['当你发现一个非常亲近的人隐瞒了对你很重要的事情，你更可能？',['直接质问，希望立刻得到解释','先收集信息，确认事实后再谈','非常难过，开始怀疑这段关系','尝试理解原因，但会重新评估信任']],
 ['如果未来十年只能选择一种生活，你更愿意？',['在竞争激烈的大城市奋斗，争取高成就','在不同国家生活工作，保持自由和变化','拥有稳定收入，与爱的人平静生活','专注自己热爱的领域，成为真正的专家']],
 ['如果实现一个重要目标必须付出很大代价，你最难接受牺牲什么？',['自己的原则和道德底线','与家人、恋人之间的亲密关系','自由和自主决定人生的权利','身体健康与长期的生活质量']],
 ['假如你付出了很多努力，却发现一个能力不如你的人因为家庭背景获得了更好的机会，你会？',['感到不公平，更想凭实力超越对方','接受现实，研究如何利用现有规则','非常失落，怀疑努力是否真的有用','寻找新的环境，不愿在不公平的地方竞争']],
 ['当你独自面对一段漫长而充满不确定性的时期，你最可能？',['制定详细计划，让自己保持忙碌','不断寻找新的体验，缓解焦虑','渴望有人陪伴，分享自己的担忧','独自思考人生，重新认识自己']],
-['假如一位曾经伤害过你的人陷入困难，并主动向你求助，你会？',['如果对方没有真正道歉，我不会帮助','根据事情的严重程度，理性判断是否帮忙','即使心里介意，也可能因为心软而帮助','可以提供有限帮助，但不会重新信任对方']],
+['假如一位曾经伤害过你的人陷入困难，并主动向你求助，你会？',['在关系没有修复之前，我会先保持距离','根据事情的严重程度，理性判断是否帮忙','即使心里介意，也可能因为心软而帮助','可以提供有限帮助，但不会重新信任对方']],
 ['如果你知道自己有很大概率能够成功，但必须离开熟悉的环境和重要的人五年，你会？',['果断离开，人生机会不应该错过','努力协调关系和计划，再做决定','很难舍弃重要的人，可能选择留下','先去尝试一段时间，再决定是否坚持']],
 ['当别人公开否定你的能力，甚至认为你不可能成功时，你通常会？',['直接反驳，表达自己的立场','暂时不争辩，用实际成果证明','表面不在意，内心却会反复难过','重新审视自己，判断对方是否有道理']],
 ['如果有一天你实现了曾经最渴望的目标，你觉得自己最可能？',['很快产生更高的目标，继续向前','享受成功，也开始考虑下一阶段','希望终于可以放松，过安稳的生活','开始思考这一切是否真正让我幸福']],
 ['假如你身处一个动荡的历史时代，有机会成为改变局势的重要人物，你最可能选择？',['争取领导权，按照自己的理想改变时代','成为谋士或重要助手，用智慧影响决策','保护自己和亲近的人，尽量远离权力斗争','借助时代变化寻找机会，建立自己的事业']],
 ['如果你必须在“被很多人尊敬”和“被少数人深深爱着”之间选择，你更希望？',['被很多人尊敬，因为我重视个人成就','被少数人深爱，因为亲密关系不可替代','两者都重要，但更希望先获得成就','两者都不是最重要的，我更在乎自由']],
-['当你发现自己长期追求的目标已经不再适合你，但此前投入了大量时间和金钱，你会？',['继续坚持，不希望过去的努力白费','认真分析成本和收益，必要时果断放弃','非常纠结，可能需要很久才能决定','暂时保留原目标，同时探索其他可能性']],
+['当你发现自己长期追求的目标已经不再适合你，但此前投入了大量时间和金钱，你会？',['先按原计划再坚持一段时间，观察是否出现转机','认真分析成本和收益，必要时果断放弃','非常纠结，可能需要很久才能决定','暂时保留原目标，同时探索其他可能性']],
 ['如果你最信任的人与你产生严重的价值观分歧，你最可能？',['坚持原则，即使最终不得不分开','尝试沟通，寻找双方都能接受的方式','因为珍惜关系，愿意改变部分想法','保留自己的观点，减少讨论以维持关系']],
 ['假如你已经取得了很高的社会地位，但内心并不快乐，你会？',['继续向更高的位置努力，寻找成就感','调整工作与生活的平衡，保留已有成果','愿意放弃部分地位，重新寻找幸福','暂时维持现状，等找到更好的机会再改变']],
-['如果多年以后，历史只能用一句话评价你的一生，你最希望是哪一句？',['她凭借自己的能力，改变了原本的命运','她拥有广阔的世界，从不被环境束缚','她始终珍惜所爱的人，活得真诚而温暖','她创造了值得后人记住的事业与成就']]
+['如果多年以后，历史只能用一句话评价你的一生，你最希望是哪一句？',['凭借自己的能力，改变了原本的命运','拥有广阔的世界，从不被环境束缚','始终珍惜所爱的人，活得真诚而温暖','创造了值得后人记住的事业与成就']]
 ];
 // 维度：决断、共情、野心、规划、独立、行动、风险、敏感。每个选项的倾向分值0..4。
 const W=[
@@ -93,68 +106,94 @@ const W=[
 ];
 const NAMES=['决断力','共情力','事业野心','理性规划','独立自主','行动力','风险偏好','情绪敏感度'];
 const PEOPLE=[
-{name:'武则天',gender:'女',label:'命运开拓者',v:[90,48,98,86,94,96,84,55],about:'重视向上突破、掌控人生与事业成就；不代表认同其历史上的权力斗争方式。',strength:'进取与目标感',risk:'把个人价值与外部成就绑定'},
-{name:'阿梅莉亚·埃尔哈特',gender:'女',label:'自由探索者',v:[90,63,78,71,99,96,98,49],about:'愿意挑战既定边界，追求自由、探索与更广阔的世界。',strength:'勇于探索',risk:'为新机会承担过多不确定性'},
-{name:'弗洛伦斯·南丁格尔',gender:'女',label:'使命改革者',v:[84,95,81,95,82,91,72,73],about:'富有责任感，重视规划与行动，希望通过自己的坚持带来改变。',strength:'责任与系统思维',risk:'对自己要求过高'},
-{name:'诸葛亮',gender:'男',label:'审慎谋划者',v:[75,74,76,99,73,86,42,66],about:'重视准备、秩序与长期策略，更习惯用周密计划应对复杂局面。',strength:'深思熟虑',risk:'过度规划与承担'},
-{name:'李清照',gender:'女',label:'敏锐表达者',v:[63,91,57,71,80,61,54,98],about:'情绪体验细腻，重视情感深度与精神独立。',strength:'敏感与表达',risk:'容易被失落与评价影响'},
-{name:'居里夫人',gender:'女',label:'坚韧求知者',v:[85,66,90,97,94,94,75,63],about:'以长期投入、专业追求和独立精神推动个人事业。',strength:'专注与坚韧',risk:'忽略休息与生活平衡'},
-{name:'苏轼',gender:'男',label:'豁达创造者',v:[75,92,61,73,87,77,73,73],about:'在变化中寻找意义，珍视情感与精神自由。',strength:'创造与适应',risk:'在理想与现实之间拉扯'},
-{name:'伊丽莎白一世',gender:'女',label:'独立领导者',v:[92,62,95,93,98,87,68,58],about:'在复杂环境中寻求自主、权衡风险，并重视长期影响力。',strength:'自主与领导',risk:'难以卸下责任'},
-{name:'简·奥斯汀',gender:'女',label:'洞察观察者',v:[65,88,62,85,89,69,47,89],about:'善于观察人际关系，重视独立判断与情感真实。',strength:'细腻洞察',risk:'反复思考他人评价'},
-{name:'郑和',gender:'男',label:'远航行动者',v:[87,70,73,83,78,96,88,52],about:'善于在陌生环境中执行复杂任务，具有跨文化探索精神。',strength:'行动与适应',risk:'长期远行带来的关系成本'},
-{name:'坂本龙马',gender:'男',label:'变革联结者',v:[90,82,87,71,96,95,92,57],about:'倾向于挑战旧有格局，重视行动、变革和跨群体合作。',strength:'改革与联结',risk:'高风险选择'},
-{name:'海伦·凯勒',gender:'女',label:'坚韧倡导者',v:[85,92,82,77,91,90,73,79],about:'面对限制仍坚持成长，重视个人自主与社会价值。',strength:'韧性与同理心',risk:'长期自我施压'}
+{name:'武则天',mbti:'ENTJ',gender:'女',label:'命运开拓者',v:[90,48,98,86,94,96,84,55],about:'重视向上突破、掌控人生与事业成就；不代表认同其历史上的权力斗争方式。',strength:'进取与目标感',risk:'把个人价值与外部成就绑定'},
+{name:'阿梅莉亚·埃尔哈特',mbti:'ESTP',gender:'女',label:'自由探索者',v:[90,63,78,71,99,96,98,49],about:'愿意挑战既定边界，追求自由、探索与更广阔的世界。',strength:'勇于探索',risk:'为新机会承担过多不确定性'},
+{name:'弗洛伦斯·南丁格尔',mbti:'INFJ',gender:'女',label:'使命改革者',v:[84,95,81,95,82,91,72,73],about:'富有责任感，重视规划与行动，希望通过自己的坚持带来改变。',strength:'责任与系统思维',risk:'对自己要求过高'},
+{name:'诸葛亮',mbti:'INTJ',gender:'男',label:'审慎谋划者',v:[75,74,76,99,73,86,42,66],about:'重视准备、秩序与长期策略，更习惯用周密计划应对复杂局面。',strength:'深思熟虑',risk:'过度规划与承担'},
+{name:'李清照',mbti:'INFP',gender:'女',label:'敏锐表达者',v:[63,91,57,71,80,61,54,98],about:'情绪体验细腻，重视情感深度与精神独立。',strength:'敏感与表达',risk:'容易被失落与评价影响'},
+{name:'居里夫人',mbti:'INTJ',gender:'女',label:'坚韧求知者',v:[85,66,90,97,94,94,75,63],about:'以长期投入、专业追求和独立精神推动个人事业。',strength:'专注与坚韧',risk:'忽略休息与生活平衡'},
+{name:'苏轼',mbti:'ENFP',gender:'男',label:'豁达创造者',v:[75,92,61,73,87,77,73,73],about:'在变化中寻找意义，珍视情感与精神自由。',strength:'创造与适应',risk:'在理想与现实之间拉扯'},
+{name:'伊丽莎白一世',mbti:'ENTJ',gender:'女',label:'独立领导者',v:[92,62,95,93,98,87,68,58],about:'在复杂环境中寻求自主、权衡风险，并重视长期影响力。',strength:'自主与领导',risk:'难以卸下责任'},
+{name:'简·奥斯汀',mbti:'INTP',gender:'女',label:'洞察观察者',v:[65,88,62,85,89,69,47,89],about:'善于观察人际关系，重视独立判断与情感真实。',strength:'细腻洞察',risk:'反复思考他人评价'},
+{name:'郑和',mbti:'ESTJ',gender:'男',label:'远航行动者',v:[87,70,73,83,78,96,88,52],about:'善于在陌生环境中执行复杂任务，具有跨文化探索精神。',strength:'行动与适应',risk:'长期远行带来的关系成本'},
+{name:'坂本龙马',mbti:'ENFP',gender:'男',label:'变革联结者',v:[90,82,87,71,96,95,92,57],about:'倾向于挑战旧有格局，重视行动、变革和跨群体合作。',strength:'改革与联结',risk:'高风险选择'},
+{name:'海伦·凯勒',mbti:'ENFJ',gender:'女',label:'坚韧倡导者',v:[85,92,82,77,91,90,73,79],about:'面对限制仍坚持成长，重视个人自主与社会价值。',strength:'韧性与同理心',risk:'长期自我施压'}
 ,
-{name:'曹操',gender:'男',label:'果断战略者',v:[89,48,96,84,85,94,77,51],about:'擅长在复杂局势中谋划与决断，重视组织和目标。',strength:'战略与执行',risk:'过度强调控制'},
-{name:'拿破仑',gender:'男',label:'雄心开拓者',v:[95,48,99,89,94,98,88,45],about:'具有强烈目标感与行动意愿，善于在变局中寻找机会。',strength:'雄心与领导',risk:'冒险与扩张过度'},
-{name:'林肯',gender:'男',label:'坚韧协调者',v:[84,93,83,93,79,89,70,78],about:'注重原则与沟通，面对冲突倾向于兼顾长远目标。',strength:'韧性与共情',risk:'承担过多压力'},
-{name:'达·芬奇',gender:'男',label:'好奇创造者',v:[87,76,69,77,99,83,82,88],about:'重视探索、创造与跨领域思考。',strength:'好奇与创造',risk:'兴趣过广难以聚焦'},
-{name:'王阳明',gender:'男',label:'知行合一者',v:[80,85,77,91,80,90,65,84],about:'强调独立思考与实践，重视行动和内在原则。',strength:'反思与行动',risk:'对原则过于执着'},
-{name:'甘地',gender:'男',label:'信念倡导者',v:[79,98,74,88,83,85,69,86],about:'注重信念、公共责任与社会改变。',strength:'坚持与同理',risk:'理想与现实张力'},
-{name:"花木兰",gender:"女",label:"勇毅守护者",v:[90, 83, 70, 72, 91, 96, 87, 68],about:"在传说中体现责任、勇气与主动担当。",strength:"担当与勇气",risk:"习惯独自承受压力"},
-{name:"慈禧太后",gender:"女",label:"权力维系者",v:[89, 48, 94, 79, 75, 84, 69, 55],about:"在权力结构中重视控制与秩序，人物评价存在争议。",strength:"政治判断",risk:"过度维护既有结构"},
-{name:"宋庆龄",gender:"女",label:"坚定理想者",v:[78, 93, 79, 84, 91, 85, 61, 78],about:"重视社会理想与长期投入。",strength:"理想与耐力",risk:"忽略个人需求"},
-{name:"秋瑾",gender:"女",label:"勇敢革新者",v:[94, 87, 91, 70, 97, 98, 96, 76],about:"敢于挑战时代限制，追求自主与变革。",strength:"勇气与改革",risk:"承担过高风险"},
-{name:"樋口一叶",gender:"女",label:"细腻书写者",v:[57, 94, 65, 77, 82, 66, 48, 99],about:"敏锐观察普通人的生活与情绪。",strength:"观察与表达",risk:"情绪负担"},
-{name:"紫式部",gender:"女",label:"深思叙事者",v:[55, 92, 68, 88, 77, 61, 42, 96],about:"重视观察、内省与复杂人际情感。",strength:"洞察与创造",risk:"过度内省"},
-{name:"北条政子",gender:"女",label:"坚韧掌舵者",v:[92, 70, 91, 87, 86, 94, 77, 69],about:"在政治变化中表现出组织与决断。",strength:"领导与韧性",risk:"责任过重"},
-{name:"与谢野晶子",gender:"女",label:"自由表达者",v:[84, 93, 74, 72, 99, 86, 81, 96],about:"重视个体表达、情感与独立精神。",strength:"自由与表达",risk:"与传统发生冲突"},
-{name:"圣女贞德",gender:"女",label:"信念行动者",v:[96, 91, 86, 63, 93, 99, 98, 87],about:"在历史叙事中以坚定信念和行动著称。",strength:"信念与勇气",risk:"忽略现实风险"},
-{name:"克娄巴特拉七世",gender:"女",label:"外交谋略者",v:[94, 70, 96, 89, 93, 91, 85, 70],about:"善于在复杂政治环境中寻找主动权。",strength:"外交与策略",risk:"高风险博弈"},
-{name:"艾达·洛芙莱斯",gender:"女",label:"理性想象者",v:[69, 75, 82, 98, 91, 75, 62, 84],about:"兼具抽象思考与跨领域想象力。",strength:"逻辑与创造",risk:"想法超前难落地"},
-{name:"罗莎·帕克斯",gender:"女",label:"平静坚守者",v:[86, 96, 78, 84, 90, 85, 68, 77],about:"以坚定而克制的行动维护原则。",strength:"原则与勇气",risk:"承受外界压力"},
-{name:"玛格丽特·撒切尔",gender:"女",label:"强势改革者",v:[96, 48, 97, 92, 94, 96, 78, 43],about:"强调决断、执行与鲜明立场，政策评价存在争议。",strength:"执行与意志",risk:"缺少弹性"},
-{name:"珍·古道尔",gender:"女",label:"耐心探索者",v:[74, 97, 79, 96, 92, 83, 58, 82],about:"通过长期观察与投入理解自然。",strength:"耐心与关怀",risk:"投入过深"},
-{name:"汉娜·阿伦特",gender:"女",label:"独立思辨者",v:[72, 82, 78, 98, 99, 74, 58, 87],about:"坚持独立判断，重视公共问题的思考。",strength:"批判思维",risk:"与群体意见疏离"},
-{name:"昂山素季",gender:"女",label:"复杂抉择者",v:[79, 67, 87, 82, 84, 75, 62, 72],about:"政治生涯具有复杂争议，适合作为公共决策反思的案例。",strength:"坚持与政治耐力",risk:"价值与现实冲突"},
-{name:"孔子",gender:"男",label:"伦理教化者",v:[69, 95, 68, 89, 71, 75, 39, 80],about:"重视教育、责任与人与人之间的关系。",strength:"教化与共情",risk:"过度维护规范"},
-{name:"孟子",gender:"男",label:"原则辩论者",v:[83, 93, 77, 85, 82, 86, 64, 82],about:"善于论辩，重视道德立场与社会责任。",strength:"原则与表达",risk:"立场过于坚定"},
-{name:"李白",gender:"男",label:"浪漫冒险者",v:[83, 88, 70, 48, 99, 91, 98, 91],about:"追求自由、想象与独特的人生体验。",strength:"创造与洒脱",risk:"计划性不足"},
-{name:"张骞",gender:"男",label:"未知开拓者",v:[88, 76, 79, 78, 87, 98, 95, 59],about:"愿意跨越陌生环境，持续探索。",strength:"探索与韧性",risk:"远行风险"},
-{name:"孙中山",gender:"男",label:"理想革新者",v:[91, 84, 93, 79, 93, 96, 91, 74],about:"重视变革愿景与组织行动。",strength:"变革与动员",risk:"目标过于宏大"},
-{name:"德川家康",gender:"男",label:"耐心布局者",v:[83, 64, 89, 99, 81, 85, 51, 48],about:"倾向长期布局与审慎等待。",strength:"耐心与策略",risk:"错失即时机会"},
-{name:"织田信长",gender:"男",label:"激进变革者",v:[98, 48, 98, 77, 98, 99, 99, 42],about:"以突破旧格局和果断行动著称。",strength:"突破与执行",risk:"激进与冲突"},
-{name:"福泽谕吉",gender:"男",label:"启蒙实践者",v:[81, 78, 86, 93, 98, 89, 70, 66],about:"重视教育、独立思考与制度学习。",strength:"学习与实践",risk:"过度理性化"},
-{name:"亚历山大大帝",gender:"男",label:"雄心远征者",v:[98, 65, 99, 74, 93, 99, 99, 61],about:"目标宏大，偏向迅速行动与探索。",strength:"勇气与领导",risk:"扩张风险"},
-{name:"马可·波罗",gender:"男",label:"好奇旅行者",v:[78, 84, 69, 70, 95, 90, 95, 77],about:"对陌生文化和未知世界充满兴趣。",strength:"好奇与适应",risk:"缺乏稳定"},
-{name:"牛顿",gender:"男",label:"专注求理者",v:[68, 52, 92, 99, 97, 77, 45, 73],about:"重视独立研究与逻辑体系。",strength:"专注与推理",risk:"人际疏离"},
-{name:"爱因斯坦",gender:"男",label:"自由求知者",v:[73, 85, 73, 96, 99, 75, 67, 86],about:"善于想象和独立思考。",strength:"想象与求知",risk:"不喜拘束"},
-{name:"马丁·路德·金",gender:"男",label:"理想演说者",v:[90, 99, 87, 80, 88, 94, 85, 86],about:"重视平等、社会联结与公开表达。",strength:"共情与动员",risk:"承受巨大压力"},
-{name:"纳尔逊·曼德拉",gender:"男",label:"和解领导者",v:[87, 98, 87, 89, 86, 87, 71, 83],about:"强调长期信念、协商与和解。",strength:"韧性与和解",risk:"背负过多期待"}];
+{name:'曹操',mbti:'ENTJ',gender:'男',label:'果断战略者',v:[89,48,96,84,85,94,77,51],about:'擅长在复杂局势中谋划与决断，重视组织和目标。',strength:'战略与执行',risk:'过度强调控制'},
+{name:'拿破仑',mbti:'ENTJ',gender:'男',label:'雄心开拓者',v:[95,48,99,89,94,98,88,45],about:'具有强烈目标感与行动意愿，善于在变局中寻找机会。',strength:'雄心与领导',risk:'冒险与扩张过度'},
+{name:'林肯',mbti:'INFJ',gender:'男',label:'坚韧协调者',v:[84,93,83,93,79,89,70,78],about:'注重原则与沟通，面对冲突倾向于兼顾长远目标。',strength:'韧性与共情',risk:'承担过多压力'},
+{name:'达·芬奇',mbti:'INTP',gender:'男',label:'好奇创造者',v:[87,76,69,77,99,83,82,88],about:'重视探索、创造与跨领域思考。',strength:'好奇与创造',risk:'兴趣过广难以聚焦'},
+{name:'王阳明',mbti:'INFJ',gender:'男',label:'知行合一者',v:[80,85,77,91,80,90,65,84],about:'强调独立思考与实践，重视行动和内在原则。',strength:'反思与行动',risk:'对原则过于执着'},
+{name:'甘地',mbti:'INFJ',gender:'男',label:'信念倡导者',v:[79,98,74,88,83,85,69,86],about:'注重信念、公共责任与社会改变。',strength:'坚持与同理',risk:'理想与现实张力'},
+{name:"花木兰",mbti:'ISFJ',gender:"女",label:"勇毅守护者",v:[90, 83, 70, 72, 91, 96, 87, 68],about:"在传说中体现责任、勇气与主动担当。",strength:"担当与勇气",risk:"习惯独自承受压力"},
+{name:"慈禧太后",mbti:'ESTJ',gender:"女",label:"权力维系者",v:[89, 48, 94, 79, 75, 84, 69, 55],about:"在权力结构中重视控制与秩序，人物评价存在争议。",strength:"政治判断",risk:"过度维护既有结构"},
+{name:"宋庆龄",mbti:'INFJ',gender:"女",label:"坚定理想者",v:[78, 93, 79, 84, 91, 85, 61, 78],about:"重视社会理想与长期投入。",strength:"理想与耐力",risk:"忽略个人需求"},
+{name:"秋瑾",mbti:'ENFJ',gender:"女",label:"勇敢革新者",v:[94, 87, 91, 70, 97, 98, 96, 76],about:"敢于挑战时代限制，追求自主与变革。",strength:"勇气与改革",risk:"承担过高风险"},
+{name:"樋口一叶",mbti:'INFP',gender:"女",label:"细腻书写者",v:[57, 94, 65, 77, 82, 66, 48, 99],about:"敏锐观察普通人的生活与情绪。",strength:"观察与表达",risk:"情绪负担"},
+{name:"紫式部",mbti:'INFJ',gender:"女",label:"深思叙事者",v:[55, 92, 68, 88, 77, 61, 42, 96],about:"重视观察、内省与复杂人际情感。",strength:"洞察与创造",risk:"过度内省"},
+{name:"北条政子",mbti:'ESTJ',gender:"女",label:"坚韧掌舵者",v:[92, 70, 91, 87, 86, 94, 77, 69],about:"在政治变化中表现出组织与决断。",strength:"领导与韧性",risk:"责任过重"},
+{name:"与谢野晶子",mbti:'ENFP',gender:"女",label:"自由表达者",v:[84, 93, 74, 72, 99, 86, 81, 96],about:"重视个体表达、情感与独立精神。",strength:"自由与表达",risk:"与传统发生冲突"},
+{name:"圣女贞德",mbti:'ENFJ',gender:"女",label:"信念行动者",v:[96, 91, 86, 63, 93, 99, 98, 87],about:"在历史叙事中以坚定信念和行动著称。",strength:"信念与勇气",risk:"忽略现实风险"},
+{name:"克娄巴特拉七世",mbti:'ENTJ',gender:"女",label:"外交谋略者",v:[94, 70, 96, 89, 93, 91, 85, 70],about:"善于在复杂政治环境中寻找主动权。",strength:"外交与策略",risk:"高风险博弈"},
+{name:"艾达·洛芙莱斯",mbti:'INTP',gender:"女",label:"理性想象者",v:[69, 75, 82, 98, 91, 75, 62, 84],about:"兼具抽象思考与跨领域想象力。",strength:"逻辑与创造",risk:"想法超前难落地"},
+{name:"罗莎·帕克斯",mbti:'ISFJ',gender:"女",label:"平静坚守者",v:[86, 96, 78, 84, 90, 85, 68, 77],about:"以坚定而克制的行动维护原则。",strength:"原则与勇气",risk:"承受外界压力"},
+{name:"玛格丽特·撒切尔",mbti:'ENTJ',gender:"女",label:"强势改革者",v:[96, 48, 97, 92, 94, 96, 78, 43],about:"强调决断、执行与鲜明立场，政策评价存在争议。",strength:"执行与意志",risk:"缺少弹性"},
+{name:"珍·古道尔",mbti:'INFJ',gender:"女",label:"耐心探索者",v:[74, 97, 79, 96, 92, 83, 58, 82],about:"通过长期观察与投入理解自然。",strength:"耐心与关怀",risk:"投入过深"},
+{name:"汉娜·阿伦特",mbti:'INTP',gender:"女",label:"独立思辨者",v:[72, 82, 78, 98, 99, 74, 58, 87],about:"坚持独立判断，重视公共问题的思考。",strength:"批判思维",risk:"与群体意见疏离"},
+{name:"昂山素季",mbti:'INFJ',gender:"女",label:"复杂抉择者",v:[79, 67, 87, 82, 84, 75, 62, 72],about:"政治生涯具有复杂争议，适合作为公共决策反思的案例。",strength:"坚持与政治耐力",risk:"价值与现实冲突"},
+{name:"孔子",mbti:'ENFJ',gender:"男",label:"伦理教化者",v:[69, 95, 68, 89, 71, 75, 39, 80],about:"重视教育、责任与人与人之间的关系。",strength:"教化与共情",risk:"过度维护规范"},
+{name:"孟子",mbti:'ENFJ',gender:"男",label:"原则辩论者",v:[83, 93, 77, 85, 82, 86, 64, 82],about:"善于论辩，重视道德立场与社会责任。",strength:"原则与表达",risk:"立场过于坚定"},
+{name:"李白",mbti:'ENFP',gender:"男",label:"浪漫冒险者",v:[83, 88, 70, 48, 99, 91, 98, 91],about:"追求自由、想象与独特的人生体验。",strength:"创造与洒脱",risk:"计划性不足"},
+{name:"张骞",mbti:'ESTP',gender:"男",label:"未知开拓者",v:[88, 76, 79, 78, 87, 98, 95, 59],about:"愿意跨越陌生环境，持续探索。",strength:"探索与韧性",risk:"远行风险"},
+{name:"孙中山",mbti:'ENFJ',gender:"男",label:"理想革新者",v:[91, 84, 93, 79, 93, 96, 91, 74],about:"重视变革愿景与组织行动。",strength:"变革与动员",risk:"目标过于宏大"},
+{name:"德川家康",mbti:'ISTJ',gender:"男",label:"耐心布局者",v:[83, 64, 89, 99, 81, 85, 51, 48],about:"倾向长期布局与审慎等待。",strength:"耐心与策略",risk:"错失即时机会"},
+{name:"织田信长",mbti:'ENTJ',gender:"男",label:"激进变革者",v:[98, 48, 98, 77, 98, 99, 99, 42],about:"以突破旧格局和果断行动著称。",strength:"突破与执行",risk:"激进与冲突"},
+{name:"福泽谕吉",mbti:'ENTP',gender:"男",label:"启蒙实践者",v:[81, 78, 86, 93, 98, 89, 70, 66],about:"重视教育、独立思考与制度学习。",strength:"学习与实践",risk:"过度理性化"},
+{name:"亚历山大大帝",mbti:'ENTJ',gender:"男",label:"雄心远征者",v:[98, 65, 99, 74, 93, 99, 99, 61],about:"目标宏大，偏向迅速行动与探索。",strength:"勇气与领导",risk:"扩张风险"},
+{name:"马可·波罗",mbti:'ENFP',gender:"男",label:"好奇旅行者",v:[78, 84, 69, 70, 95, 90, 95, 77],about:"对陌生文化和未知世界充满兴趣。",strength:"好奇与适应",risk:"缺乏稳定"},
+{name:"牛顿",mbti:'INTJ',gender:"男",label:"专注求理者",v:[68, 52, 92, 99, 97, 77, 45, 73],about:"重视独立研究与逻辑体系。",strength:"专注与推理",risk:"人际疏离"},
+{name:"爱因斯坦",mbti:'INTP',gender:"男",label:"自由求知者",v:[73, 85, 73, 96, 99, 75, 67, 86],about:"善于想象和独立思考。",strength:"想象与求知",risk:"不喜拘束"},
+{name:"马丁·路德·金",mbti:'ENFJ',gender:"男",label:"理想演说者",v:[90, 99, 87, 80, 88, 94, 85, 86],about:"重视平等、社会联结与公开表达。",strength:"共情与动员",risk:"承受巨大压力"},
+{name:"纳尔逊·曼德拉",mbti:'INFJ',gender:"男",label:"和解领导者",v:[87, 98, 87, 89, 86, 87, 71, 83],about:"强调长期信念、协商与和解。",strength:"韧性与和解",risk:"背负过多期待"}];
 let answers=Array(24).fill(null),stage=-1;
 const $=s=>document.querySelector(s), esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const MBTIS=['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
 let profile={gender:'',mbti:''};
 try{const x=JSON.parse(localStorage.getItem('history-echo-profile-v1'));if(x&&typeof x==='object'){profile.gender=typeof x.gender==='string'?x.gender:'';profile.mbti=typeof x.mbti==='string'?x.mbti:''}}catch(e){}
-function profileForm(){return `<div class="profile"><h3>关于你 <span class="muted" style="font-size:13px">（选填）</span></h3><div class="profile-grid"><div><label for="gender">性别</label><select id="gender"><option value="">请选择 / 跳过</option>${['女','男','其他','不愿透露'].map(x=>`<option value="${x}" ${profile.gender===x?'selected':''}>${x}</option>`).join('')}</select></div><div><label for="mbti">MBTI 类型</label><select id="mbti"><option value="">不知道 / 未测试 / 跳过</option>${MBTIS.map(x=>`<option value="${x}" ${profile.mbti===x?'selected':''}>${x}</option>`).join('')}</select></div></div><small>这些信息只保存在你的浏览器，不上传服务器，不会改变八维人格评分；选择男性或女性会限定匹配人物的性别。MBTI 是自填资料，不是本测试测出的结果。</small></div>`}
+function profileForm(){return `<div class="profile"><h3>关于你 <span class="muted" style="font-size:13px">（选填）</span></h3><div class="profile-grid"><div><label for="gender">性别</label><select id="gender"><option value="">请选择 / 跳过</option>${['女','男','其他','不愿透露'].map(x=>`<option value="${x}" ${profile.gender===x?'selected':''}>${x}</option>`).join('')}</select></div><div><label for="mbti">MBTI 类型</label><select id="mbti"><option value="">不知道 / 未测试 / 跳过</option>${MBTIS.map(x=>`<option value="${x}" ${profile.mbti===x?'selected':''}>${x}</option>`).join('')}</select></div></div><small>这些信息只保存在你的浏览器，不上传服务器，不会改变八维人格评分；选择男性或女性会限定匹配人物的性别。MBTI 由你自行填写，不会通过24道题重新测算。填写后将以20%的权重参与人物匹配；未填写则完全依据24道题。历史人物的 MBTI 为娱乐性推测。</small></div>`}
 function bindProfile(){for(const k of ['gender','mbti']){const el=$('#'+k);if(el)el.onchange=()=>{profile[k]=el.value;try{localStorage.setItem('history-echo-profile-v1',JSON.stringify(profile))}catch(e){}}}}
 function restore(){try{const a=JSON.parse(localStorage.getItem('history-echo-v1'));if(Array.isArray(a)&&a.length===24)answers=a.map(x=>Number.isInteger(x)&&x>=0&&x<4?x:null)}catch(e){}}
 function save(){try{localStorage.setItem('history-echo-v1',JSON.stringify(answers))}catch(e){}}
 function render(){if(stage===-1)return home();if(stage===4)return result();quiz()}
 function home(){$('#app').innerHTML=`<div class="panel"><span class="pill">24题 · 约8分钟 · 免费</span><h1>如果你生活在历史中，<span class="gold">会是谁？</span></h1><p class="muted">面对机会、竞争、亲密关系和人生抉择，你会做出怎样的选择？通过24道情境题，探索你的八维人格，并发现与你的价值取向相似的历史人物。</p><div class="note">没有正确答案，也无需填写姓名。结果只在你的设备上计算和保存。人物匹配属于探索性娱乐，不是科学心理测量。</div>${profileForm()}<div class="actions"><button class="btn" id="start">${answers.some(x=>x!==null)?'继续我的测试':'开始探索'}</button>${answers.some(x=>x!==null)?'<button class="btn secondary" id="reset">重新开始</button>':''}</div></div>`;bindProfile();$('#start').onclick=()=>{profile.gender=$('#gender')?.value||'';profile.mbti=$('#mbti')?.value||'';try{localStorage.setItem('history-echo-profile-v1',JSON.stringify(profile))}catch(e){}let i=answers.findIndex(x=>x===null);stage=i===-1?4:Math.floor(i/6);render()};if($('#reset'))$('#reset').onclick=()=>{if(confirm('确定清除本机答案并重新开始吗？')){answers=Array(24).fill(null);save();stage=0;render()}}}
-function quiz(){let start=stage*6,end=start+6,count=answers.filter(x=>x!==null).length;$('#app').innerHTML=`<div class="panel"><div class="eyebrow">第 ${stage+1} 轮 / 共4轮</div><h2>${['真实决策方式','野心、原则与关系','内在性格与命运','核心人格与人生追求'][stage]}</h2><div class="muted">已回答 ${count}/24 题 · 请选择最接近真实反应的选项</div><div class="progress"><div style="width:${count/24*100}%"></div></div><div id="questions">${DATA.slice(start,end).map((item,i)=>{let id=start+i;return `<div class="question"><b>${id+1}. ${esc(item[0])}</b>${item[1].map((v,j)=>`<button class="option ${answers[id]===j?'selected':''}" data-id="${id}" data-opt="${j}" aria-pressed="${answers[id]===j}">${'ABCD'[j]}. ${esc(v)}</button>`).join('')}</div>`}).join('')}</div><div class="actions"><button class="btn secondary" id="prev">${stage===0?'返回首页':'上一轮'}</button><button class="btn" id="next" ${answers.slice(start,end).every(x=>x!==null)?'':'disabled'}>${stage===3?'查看我的人格报告':'进入下一轮 →'}</button></div></div>`;document.querySelectorAll('.option').forEach(b=>b.onclick=()=>{answers[+b.dataset.id]=+b.dataset.opt;save();quiz()});$('#prev').onclick=()=>{stage--;render()};$('#next').onclick=()=>{if(!answers.slice(start,end).every(x=>x!==null))return;stage++;render();scrollTo({top:0,behavior:'smooth'})}}
-function calculate(){let t=Array(8).fill(0);answers.forEach((a,i)=>W[i][a].forEach((v,j)=>t[j]+=v));t=t.map(v=>Math.round(15+v/96*80));let eligible=(profile.gender==='男'||profile.gender==='女')?PEOPLE.filter(p=>p.gender===profile.gender):PEOPLE;let ranked=eligible.map(p=>{let d=p.v.reduce((s,v,i)=>s+Math.abs(v-t[i]),0)/8;return {...p,score:Math.max(40,Math.min(95,Math.round(100-d*.72)))}}).sort((a,b)=>b.score-a.score);return {t,ranked}}
+function quiz(){let start=stage*6,end=start+6,count=answers.filter(x=>x!==null).length;$('#app').innerHTML=`<div class="panel"><div class="eyebrow">第 ${stage+1} 轮 / 共4轮</div><h2>${['真实决策方式','野心、原则与关系','内在性格与命运','核心人格与人生追求'][stage]}</h2><div class="muted">已回答 ${count}/24 题 · 进度自动保存在本机 · 请选择最接近真实反应的选项</div><div class="progress"><div style="width:${count/24*100}%"></div></div><div id="questions">${DATA.slice(start,end).map((item,i)=>{let id=start+i;return `<div class="question"><b>${id+1}. ${esc(item[0])}</b>${item[1].map((v,j)=>`<button class="option ${answers[id]===j?'selected':''}" data-id="${id}" data-opt="${j}" aria-pressed="${answers[id]===j}">${'ABCD'[j]}. ${esc(v)}</button>`).join('')}</div>`}).join('')}</div><div class="actions"><button class="btn secondary" id="prev">${stage===0?'返回首页':'上一轮'}</button><button class="btn" id="next" ${answers.slice(start,end).every(x=>x!==null)?'':'disabled'}>${stage===3?'查看我的人格报告':'进入下一轮 →'}</button></div></div>`;document.querySelectorAll('.option').forEach(b=>b.onclick=()=>{answers[+b.dataset.id]=+b.dataset.opt;save();quiz()});$('#prev').onclick=()=>{stage--;render();window.scrollTo({top:0,behavior:'smooth'})};$('#next').onclick=()=>{if(!answers.slice(start,end).every(x=>x!==null))return;stage++;render();window.scrollTo({top:0,behavior:'smooth'})}}
+// 各维度独立校准：不同维度在24题中的理论得分范围并不相同。
+// 采用每维理论最小/最大值归一化，避免因某维题目分值天然偏高而虚增分数。
+const DIM_RANGES=Array.from({length:8},(_,j)=>({
+ min:W.reduce((sum,row)=>sum+Math.min(...row.map(choice=>choice[j])),0),
+ max:W.reduce((sum,row)=>sum+Math.max(...row.map(choice=>choice[j])),0)
+}));
+function calculate(){
+ if(answers.length!==24||answers.some(x=>!Number.isInteger(x)||x<0||x>3))return null;
+ const raw=Array(8).fill(0);
+ answers.forEach((a,i)=>W[i][a].forEach((v,j)=>raw[j]+=v));
+ const t=raw.map((v,j)=>{
+  const {min,max}=DIM_RANGES[j];
+  return Math.round(15+80*(v-min)/Math.max(1,max-min));
+ });
+ const eligible=(profile.gender==='男'||profile.gender==='女')?PEOPLE.filter(p=>p.gender===profile.gender):PEOPLE;
+ const userMBTI=MBTIS.includes(profile.mbti)?profile.mbti:'';
+ const ranked=eligible.map(p=>{
+  // 八维等权绝对距离；0代表完全相同，100代表八维平均差100分。
+  const distance=p.v.reduce((sum,v,i)=>sum+Math.abs(v-t[i]),0)/8;
+  const questionScore=Math.max(0,100-distance);
+  const mbtiMatches=userMBTI?[...userMBTI].filter((letter,i)=>letter===p.mbti[i]).length:null;
+  const mbtiScore=mbtiMatches===null?null:mbtiMatches*25;
+  const combined=mbtiScore===null?questionScore:questionScore*.8+mbtiScore*.2;
+  return {...p,score:Math.round(combined),questionScore:Math.round(questionScore),mbtiMatches,mbtiScore};
+ }).sort((a,b)=>b.score-a.score||b.questionScore-a.questionScore||a.name.localeCompare(b.name,'zh'));
+ return {t,ranked};
+}
 function drawRadar(t){const c=$('#radar'),ctx=c.getContext('2d');let dpr=window.devicePixelRatio||1;c.width=360*dpr;c.height=340*dpr;ctx.scale(dpr,dpr);const cx=180,cy=169,r=112,n=8;ctx.clearRect(0,0,360,340);for(let ring=1;ring<=4;ring++){ctx.beginPath();for(let i=0;i<n;i++){let a=-Math.PI/2+i*Math.PI*2/n;let x=cx+Math.cos(a)*r*ring/4,y=cy+Math.sin(a)*r*ring/4;i?ctx.lineTo(x,y):ctx.moveTo(x,y)}ctx.closePath();ctx.strokeStyle='#e1e7f0';ctx.stroke()}ctx.beginPath();t.forEach((v,i)=>{let a=-Math.PI/2+i*Math.PI*2/n,x=cx+Math.cos(a)*r*v/100,y=cy+Math.sin(a)*r*v/100;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.closePath();ctx.fillStyle='#4b85eb36';ctx.fill();ctx.strokeStyle='#3778e8';ctx.lineWidth=2;ctx.stroke();ctx.font='12px system-ui';ctx.fillStyle='#385273';ctx.textAlign='center';NAMES.forEach((s,i)=>{let a=-Math.PI/2+i*Math.PI*2/n;ctx.fillText(s,cx+Math.cos(a)*(r+38),cy+Math.sin(a)*(r+27)+4)})}
 
 const DIM_ADV=[
@@ -194,6 +233,53 @@ function comparison(t,p){
  const differences=far.map(x=>`${x.name}（你 ${x.you} / 人物 ${x.figure}）`).join('、');
  return `<div class="compare"><p><b class="gold">你们比较接近：</b>${esc(similarities)}</p><p><b class="gold">你们差异较大：</b>${esc(differences)}</p><p class="small">上述数字来自本测试的虚构人物画像与答题规则，不代表对历史人物真实性格的测量。</p></div>`;
 }
-function result(){const {t,ranked}=calculate();const max=t.indexOf(Math.max(...t)),min=t.indexOf(Math.min(...t));const a=answers;let relationship=a[19]===1?'你格外重视少数人的深度信任与爱。':a[19]===3?'你倾向于把自由放在社会评价之前。':'你希望在亲密关系和个人成就之间找到自己的位置。';let career=t[2]>75?'你可能更喜欢目标明确、成长空间较大的职业环境。':'你可能更适合能持续积累技能、并兼顾个人价值的工作环境。';let risk=a[20]===2?'面对投入很久却不再适合的目标，你可能较难及时放手。':a[20]===0?'你可能需要留意沉没成本对选择的影响。':'你已经表现出一定的调整方向意识，仍值得定期审视长期目标。';let core=t[2]>t[1]?'进取与自主':'联结与成长';$('#app').innerHTML=`<div class="panel"><div class="eyebrow">你的专属探索报告 · 24/24</div><p class="small">${profile.gender?`性别：${esc(profile.gender)}　·　`:``}MBTI：${profile.mbti?esc(profile.mbti):`未填写`}</p><h1>${core}的<span class="gold">历史回响</span></h1><p class="muted">你的回答呈现出多种并存的倾向，下面是基于24道情境题的解释性画像。</p><div class="profile"><label for="result-gender">历史人物匹配性别（可随时更改，无需重新答题）</label><select id="result-gender"><option value="">不限性别</option>${['女','男','其他','不愿透露'].map(x=>`<option value="${x}" ${profile.gender===x?'selected':''}>${x}</option>`).join('')}</select><small>选择男性时，只显示男性历史人物；选择女性时，只显示女性历史人物。</small></div><div class="note">人物候选范围根据你填写的性别筛选；选择其他、不愿透露或跳过时不限制性别。人物相似度是本网页自定义规则生成的娱乐性分数，不能当作经验证的心理学百分比，也不能证明你与历史人物拥有相同人格。</div><h2 style="margin-top:28px">八维人格雷达图</h2><canvas id="radar" width="360" height="340" role="img" aria-label="八维人格雷达图"></canvas>${NAMES.map((n,i)=>`<div class="trait"><div class="row"><span>${n}</span><strong>${t[i]}/100</strong></div><div class="track"><div class="fill" style="width:${t[i]}%"></div></div></div>`).join('')}<h2 style="margin-top:32px">最相似的三位历史人物</h2>${ranked.slice(0,3).map((p,i)=>`<div class="person"><span class="rank">TOP ${i+1} · 探索性相似度 ${p.score}%</span><h3>${esc(p.name)} · ${esc(p.label)}</h3><p class="muted">${esc(p.about)}</p><div class="small">相似主题：${esc(p.strength)}<br>值得留意：${esc(p.risk)}</div><details class="person-fold" ${i===0?'open':''}><summary>查看与${esc(p.name)}的详细匹配分析</summary><div class="fold-body">${comparison(t,p)}<div class="compare"><p><b class="gold">人物优势分析</b></p><p class="muted">${esc(characterAdvice(p,t).adv)}</p><p><b class="gold">成长建议</b></p><p class="muted">${esc(characterAdvice(p,t).grow)}</p></div></div></details></div>`).join('')}<h2>你的优势与成长空间</h2><p class="muted"><b class="gold">突出倾向：</b>${NAMES[max]}是你当前得分最高的维度之一。这可能成为你应对变化的重要资源。</p><p class="muted"><b class="gold">可探索的方向：</b>${NAMES[min]}相对较低，不代表能力不足，只说明在这套题目中相关选项出现较少。</p><p class="muted"><b class="gold">决策提醒：</b>${risk}</p><h2>感情与事业</h2><p class="muted"><b class="gold">情感模式：</b>${relationship}真实关系仍需结合沟通方式和具体经历判断。</p><p class="muted"><b class="gold">事业倾向：</b>${career}建议在选择机会时同时衡量成长、健康、关系和自由。</p><h2>给你的三条建议</h2><p class="muted">① 用真实经历检验测试标签，不必被单一人物定义。<br>② 面对重大选择时，写下自己的底线和退出条件。<br>③ 允许事业目标、亲密关系与生活幸福随着人生阶段变化。</p><div class="actions"><button class="btn" id="share">分享这个测试</button><button class="btn secondary" id="copy">复制我的结果</button><button class="btn secondary" id="restart">重新测试</button></div><p class="small" id="status" aria-live="polite"></p></div>`;drawRadar(t);$('#result-gender').onchange=e=>{profile.gender=e.target.value;try{localStorage.setItem('history-echo-profile-v1',JSON.stringify(profile))}catch(err){}result()};$('#restart').onclick=()=>{if(confirm('重新测试会清除当前答案，是否继续？')){answers=Array(24).fill(null);save();stage=0;render()}};$('#share').onclick=async()=>{let url=location.href.split('#')[0];try{if(navigator.share)await navigator.share({title:'历史回响｜24题人格探索',text:'来测测你最像哪位历史人物！',url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);$('#status').textContent='测试链接已复制。上传到网站后，这个链接就能发给朋友。'}else $('#status').textContent='分享地址：'+url}catch(e){if(e.name!=='AbortError')$('#status').textContent='请从浏览器地址栏复制链接。'}};$('#copy').onclick=async()=>{let s=`我的历史人物人格测试结果：${profile.mbti?`MBTI ${profile.mbti}；`:``}${ranked.slice(0,3).map(x=>x.name+' '+x.score+'%').join('、')}。八维人格：${NAMES.map((n,i)=>n+t[i]).join('、')}。测试入口：${location.href.split('#')[0]}`;try{await navigator.clipboard.writeText(s);$('#status').textContent='结果文字已复制！'}catch(e){$('#status').textContent=s}}}
+
+// 基于真实答题分数的动态建议；不是临床心理评估。
+const DIM_GUIDE=[
+ ['你习惯在关键时刻形成自己的判断。','重大决定前写下两种备选方案，并向不同立场的人求证。'],
+ ['你较容易觉察他人的情绪和处境。','练习说出自己的需要，不必为了照顾所有人而忽略边界。'],
+ ['你对成长和达成目标有较强动力。','把目标拆成可以休息和调整的阶段，不用成绩定义自我价值。'],
+ ['你善于从长期视角安排资源和步骤。','为计划保留弹性，每月允许一次低成本尝试。'],
+ ['你重视自主选择和个人空间。','坚持独立的同时，也可以主动寻求协作和反馈。'],
+ ['你愿意把想法付诸实践。','在行动前设定一个可验证的小目标，避免因忙碌忽略方向。'],
+ ['你较愿意面对不确定性和新机会。','为高风险选择设定预算、期限与退出条件。'],
+ ['你对细节、评价和情绪变化较为敏锐。','区分事实与猜测，情绪波动时先记录再决定。']
+];
+function personalInsights(t){
+ const order=t.map((v,i)=>({v,i})).sort((a,b)=>b.v-a.v);
+ const top=order.slice(0,2),low=order.slice(-2).reverse();
+ return `<div class="insight-grid">${top.map(x=>`<div class="insight"><strong>你的优势 · ${esc(NAMES[x.i])}</strong><p>${esc(DIM_GUIDE[x.i][0])} 这一维得分 ${x.v}/100，建议结合实际经历理解。</p></div>`).join('')}${low.map(x=>`<div class="insight"><strong>成长实验 · ${esc(NAMES[x.i])}</strong><p>${esc(DIM_GUIDE[x.i][1])} 这并非能力不足，而是值得探索的另一种行为方式。</p></div>`).join('')}</div>`;
+}
+// 简短、可核对的历史事件；未收录的人物不杜撰故事。
+const HISTORICAL_STORIES={
+ '诸葛亮':'蜀汉时期，诸葛亮长期参与国家治理与北伐筹划。《出师表》也展现了他对责任与政治目标的重视。',
+ '武则天':'武则天在唐代政治环境中逐步掌握权力，并于690年建立武周政权；其施政和权力手段至今有不同评价。',
+ '李清照':'李清照的词作跨越早年生活与战乱流离，留下了对情感、记忆和时代变迁的细腻表达。',
+ '苏轼':'苏轼多次遭遇贬谪，在黄州等地仍持续创作诗文；他的作品呈现了面对逆境的复杂心境。',
+ '居里夫人':'玛丽·居里与皮埃尔·居里共同研究放射性，并因相关研究获得诺贝尔奖；她后来又获得诺贝尔化学奖。',
+ '伊丽莎白一世':'伊丽莎白一世在位期间面对宗教冲突与国际竞争，长期依靠政治协商和权力平衡维系统治。',
+ '林肯':'林肯在美国内战期间担任总统，并于1863年发布《解放奴隶宣言》，其政治抉择仍是重要的历史研究主题。',
+ '达·芬奇':'达·芬奇留下大量绘画、工程与自然观察笔记，体现了文艺复兴时期跨领域求知的特点。',
+ '紫式部':'紫式部以《源氏物语》闻名，作品细致描绘了平安时代贵族社会的情感和人际关系。',
+ '秋瑾':'秋瑾参与近代中国革命活动，并通过写作和行动倡导女性教育与社会变革。',
+ '郑和':'明代郑和率领船队多次远航，参与了跨地区的外交和海上交流。',
+ '德川家康':'德川家康在关原之战后巩固政治优势，1603年受任征夷大将军，开启江户幕府。',
+ '罗莎·帕克斯':'1955年，罗莎·帕克斯在蒙哥马利拒绝让出公交车座位，成为美国民权运动的重要象征之一。',
+ '珍·古道尔':'珍·古道尔长期研究坦桑尼亚贡贝地区的黑猩猩，推动了灵长类动物行为研究和自然保护。',
+ '艾达·洛芙莱斯':'艾达·洛芙莱斯在分析机相关笔记中讨论了机器执行复杂运算的可能性。',
+ '拿破仑':'拿破仑在法国革命后崛起，推动法典编纂，也发动了影响欧洲格局的多次战争。',
+ '爱因斯坦':'爱因斯坦于1905年发表多篇重要物理学论文，随后发展广义相对论。',
+ '南丁格尔':'弗洛伦斯·南丁格尔在克里米亚战争期间改进护理实践，之后推动护理教育和卫生统计。',
+ '弗洛伦斯·南丁格尔':'弗洛伦斯·南丁格尔在克里米亚战争期间改进护理实践，之后推动护理教育和卫生统计。',
+ '王阳明':'王阳明提出知行合一等思想，并在政治与军事事务中尝试将理念付诸实践。',
+ '孔子':'孔子的教育活动和思想经弟子及后世学者整理传播，深刻影响了东亚文化传统。',
+ '李白':'李白以富于想象力的诗歌闻名，其作品反映了唐代文人的抱负、游历与人生感受。'
+};
+function historicalStory(p){const story=HISTORICAL_STORIES[p.name];return story?`<div class="story"><b>历史中的一个侧面</b><p>${esc(story)}</p><small>历史经历仅作背景参考，不能据此确定人物的 MBTI 或真实人格分数。</small></div>`:''}
+function wrapCanvas(ctx,text,x,y,maxWidth,lineHeight,maxLines=3){let line='',count=0;for(const c of text){const test=line+c;if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,y+count*lineHeight);count++;line=c;if(count>=maxLines)return y+count*lineHeight;}else line=test;}if(line){ctx.fillText(line,x,y+count*lineHeight);count++;}return y+count*lineHeight;}
+function makeShareCard(t,p){const c=document.createElement('canvas');c.width=900;c.height=1200;const g=c.getContext('2d');g.fillStyle='#f7f9fd';g.fillRect(0,0,900,1200);g.fillStyle='#ffffff';g.fillRect(50,55,800,1090);g.fillStyle='#1c355a';g.font='bold 27px system-ui';g.fillText('HISTORICAL ECHOES · 历史回响',94,125);g.fillStyle='#a8793b';g.font='23px system-ui';g.fillText('24题历史人物人格探索',94,177);g.fillStyle='#142b50';g.font='bold 62px system-ui';wrapCanvas(g,p.name,94,310,720,80,2);g.font='32px system-ui';g.fillStyle='#4c6688';g.fillText(p.label,94,390);g.fillStyle='#346de0';g.font='bold 54px system-ui';g.fillText('匹配分 '+p.score,94,495);g.fillStyle='#536782';g.font='25px system-ui';g.fillText('人物参考 MBTI：'+p.mbti,94,550);g.fillText('我的 MBTI：'+(profile.mbti||'未填写'),94,597);g.fillStyle='#142b50';g.font='bold 29px system-ui';g.fillText('我的突出倾向',94,690);g.fillStyle='#536782';g.font='25px system-ui';const dims=t.map((v,i)=>({v,i})).sort((a,b)=>b.v-a.v).slice(0,3);wrapCanvas(g,dims.map(x=>NAMES[x.i]+' '+x.v).join('  ·  '),94,746,705,40,3);g.fillStyle='#a8793b';g.font='25px system-ui';wrapCanvas(g,'和历史人物相似，不代表我们拥有相同的人生。',94,890,690,40,3);g.fillStyle='#8291a7';g.font='21px system-ui';wrapCanvas(g,'探索性娱乐结果 · 非科学心理诊断',94,1035,710,34);g.fillText('zwenjing632-lab.github.io/history-personality-test/',94,1090);return c;}
+async function exportShareCard(t,p){const c=makeShareCard(t,p),status=$('#status');try{const blob=await new Promise(resolve=>c.toBlob(resolve,'image/png'));if(!blob)throw Error('图片生成失败');const file=new File([blob],'历史回响-人格结果.png',{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){await navigator.share({files:[file],title:'我的历史回响人格结果'});status.textContent='已打开系统分享菜单。';return;}const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='历史回响-人格结果.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);status.textContent='分享卡已生成；如浏览器没有自动保存，请尝试用 Safari 打开。';}catch(e){if(e.name!=='AbortError')status.textContent='生成失败：'+e.message;}}
+
+function result(){const computed=calculate();if(!computed){stage=0;render();return;}const {t,ranked}=computed;const max=t.indexOf(Math.max(...t)),min=t.indexOf(Math.min(...t));const a=answers;let relationship=a[19]===1?'你格外重视少数人的深度信任与爱。':a[19]===3?'你倾向于把自由放在社会评价之前。':'你希望在亲密关系和个人成就之间找到自己的位置。';let career=t[2]>75?'你可能更喜欢目标明确、成长空间较大的职业环境。':'你可能更适合能持续积累技能、并兼顾个人价值的工作环境。';let risk=a[20]===2?'面对投入很久却不再适合的目标，你可能较难及时放手。':a[20]===0?'你可能需要留意沉没成本对选择的影响。':'你已经表现出一定的调整方向意识，仍值得定期审视长期目标。';let core=t[2]>t[1]?'进取与自主':'联结与成长';$('#app').innerHTML=`<div class="panel"><div class="eyebrow">你的专属探索报告 · 24/24</div><p class="small">${profile.gender?`性别：${esc(profile.gender)}　·　`:``}MBTI：${profile.mbti?esc(profile.mbti):`未填写`}</p><h1>${core}的<span class="gold">历史回响</span></h1><p class="muted">你的回答呈现出多种并存的倾向，下面是基于24道情境题的解释性画像。</p><div class="profile"><label for="result-gender">历史人物匹配性别（可随时更改，无需重新答题）</label><select id="result-gender"><option value="">不限性别</option>${['女','男','其他','不愿透露'].map(x=>`<option value="${x}" ${profile.gender===x?'selected':''}>${x}</option>`).join('')}</select><label for="result-mbti">你的 MBTI（可更改并立即重新匹配）</label><select id="result-mbti"><option value="">不知道 / 未测试 / 跳过</option>${MBTIS.map(x=>`<option value="${x}" ${profile.mbti===x?'selected':''}>${x}</option>`).join('')}</select><small>性别筛选候选人物；填写的 MBTI 参与人物排名，但不会改变24题的八维得分。</small></div><div class="note">人物候选范围根据你填写的性别筛选；选择其他、不愿透露或跳过时不限制性别。填写 MBTI 时，八维答题占80%，四字母偏好一致程度占20%；未填写时答题占100%。历史人物 MBTI 为推测性娱乐标签。八维得分经过各维理论范围归一化，匹配分根据八维距离计算。人物相似度是本网页自定义规则生成的娱乐性分数，不能当作经验证的心理学百分比，也不能证明你与历史人物拥有相同人格。</div><h2 style="margin-top:28px">八维人格雷达图</h2><canvas id="radar" width="360" height="340" role="img" aria-label="八维人格雷达图"></canvas>${NAMES.map((n,i)=>`<div class="trait"><div class="row"><span>${n}</span><strong>${t[i]}/100</strong></div><div class="track"><div class="fill" style="width:${t[i]}%"></div></div></div>`).join('')}<h2 style="margin-top:32px">最相似的三位历史人物</h2>${ranked.slice(0,3).map((p,i)=>`<div class="person"><span class="rank">TOP ${i+1} · 探索性相似度 ${p.score}%</span><h3>${esc(p.name)} · ${esc(p.label)}</h3><p class="small">人物参考 MBTI：<b>${esc(p.mbti)}</b>${p.mbtiMatches===null?' · 你未填写 MBTI，未参与评分':` · 与你的 ${esc(profile.mbti)} 一致 ${p.mbtiMatches}/4 维 · 答题匹配 ${p.questionScore} 分 · MBTI 匹配 ${p.mbtiScore} 分`}</p><p class="muted">${esc(p.about)}</p><div class="small">相似主题：${esc(p.strength)}<br>值得留意：${esc(p.risk)}</div><details class="person-fold" ${i===0?'open':''}><summary>查看与${esc(p.name)}的详细匹配分析</summary><div class="fold-body">${comparison(t,p)}${historicalStory(p)}<div class="compare"><p><b class="gold">人物优势分析</b></p><p class="muted">${esc(characterAdvice(p,t).adv)}</p><p><b class="gold">成长建议</b></p><p class="muted">${esc(characterAdvice(p,t).grow)}</p></div></div></details></div>`).join('')}<h2>你的专属人格分析</h2><p class="muted">以下建议根据你的八维答题得分生成，不是照搬历史人物的性格描述。</p>${personalInsights(t)}<h2>你的优势与成长空间</h2><p class="muted"><b class="gold">突出倾向：</b>${NAMES[max]}是你当前得分最高的维度之一。这可能成为你应对变化的重要资源。</p><p class="muted"><b class="gold">可探索的方向：</b>${NAMES[min]}相对较低，不代表能力不足，只说明在这套题目中相关选项出现较少。</p><p class="muted"><b class="gold">决策提醒：</b>${risk}</p><h2>感情与事业</h2><p class="muted"><b class="gold">情感模式：</b>${relationship}真实关系仍需结合沟通方式和具体经历判断。</p><p class="muted"><b class="gold">事业倾向：</b>${career}建议在选择机会时同时衡量成长、健康、关系和自由。</p><h2>给你的三条建议</h2><p class="muted">① 用真实经历检验测试标签，不必被单一人物定义。<br>② 面对重大选择时，写下自己的底线和退出条件。<br>③ 允许事业目标、亲密关系与生活幸福随着人生阶段变化。</p><div class="actions"><button class="btn" id="sharecard">生成结果分享卡</button><button class="btn secondary" id="share">分享测试链接</button><button class="btn secondary" id="copy">复制我的结果</button><button class="btn secondary" id="restart">重新测试</button></div><p class="small" id="status" aria-live="polite"></p></div>`;drawRadar(t);$('#result-gender').onchange=e=>{profile.gender=e.target.value;try{localStorage.setItem('history-echo-profile-v1',JSON.stringify(profile))}catch(err){}result()};$('#result-mbti').onchange=e=>{profile.mbti=e.target.value;try{localStorage.setItem('history-echo-profile-v1',JSON.stringify(profile))}catch(err){}result()};$('#restart').onclick=()=>{if(confirm('重新测试会清除当前答案，是否继续？')){answers=Array(24).fill(null);save();stage=0;render()}};$('#sharecard').onclick=()=>exportShareCard(t,ranked[0]);$('#share').onclick=async()=>{let url=location.href.split('#')[0];try{if(navigator.share)await navigator.share({title:'历史回响｜24题人格探索',text:'来测测你最像哪位历史人物！',url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);$('#status').textContent='测试链接已复制。上传到网站后，这个链接就能发给朋友。'}else $('#status').textContent='分享地址：'+url}catch(e){if(e.name!=='AbortError')$('#status').textContent='请从浏览器地址栏复制链接。'}};$('#copy').onclick=async()=>{let s=`我的历史人物人格测试结果：${profile.mbti?`MBTI ${profile.mbti}；`:``}${ranked.slice(0,3).map(x=>x.name+' '+x.score+'%').join('、')}。八维人格：${NAMES.map((n,i)=>n+t[i]).join('、')}。测试入口：${location.href.split('#')[0]}`;try{await navigator.clipboard.writeText(s);$('#status').textContent='结果文字已复制！'}catch(e){$('#status').textContent=s}}}
 window.startHistoricalQuiz=()=>{stage=0;render()};restore();render();
 </script></body></html>
