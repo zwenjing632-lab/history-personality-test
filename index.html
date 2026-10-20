@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f9fc"><meta name="app-version" content="share-v6-20261021"><title>历史回响｜24题人格探索</title><style>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f9fc"><meta name="app-version" content="share-v7-20261021"><title>历史回响｜24题人格探索</title><style>
 :root{font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:#f4f0e9;background:#0d1423}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 75% 0%,#29324b 0,transparent 45%),#0d1423}button{font:inherit;cursor:pointer}main{max-width:770px;margin:auto;padding:30px 18px 70px}.brand{letter-spacing:.25em;color:#d3b782;font-size:12px;font-weight:700}.panel{background:#182236;border:1px solid #354056;border-radius:22px;padding:28px;margin-top:24px;box-shadow:0 20px 50px #0002}h1{font-size:clamp(36px,8vw,58px);line-height:1.12;margin:16px 0}h2{font-size:26px;margin:6px 0 14px}h3{font-size:19px;margin:24px 0 10px}.muted{color:#aab5c7;line-height:1.85}.gold{color:#e6c68d}.btn{border:0;background:#d9b77c;color:#1c2230;padding:14px 22px;border-radius:12px;font-weight:750}.btn.secondary{background:#303c50;color:#f7f4ed}.btn:disabled{opacity:.4;cursor:not-allowed}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}.eyebrow{color:#d9b77c;font-size:13px;letter-spacing:.12em}.progress{height:8px;border-radius:10px;background:#364055;overflow:hidden;margin:18px 0}.progress div{height:100%;background:linear-gradient(90deg,#b98c57,#f4dba8);transition:width .25s}.question{border-top:1px solid #354056;padding:22px 0}.question:first-of-type{border:0}.question b{display:block;line-height:1.7;margin-bottom:13px}.option{display:block;width:100%;text-align:left;border:1px solid #435067;border-radius:12px;padding:13px 15px;background:#202d43;color:#e9edf5;margin:9px 0;line-height:1.6}.option.selected{border-color:#eac88b;background:#3c3b3b;box-shadow:inset 0 0 0 1px #eac88b}.pill{display:inline-block;border:1px solid #806d4c;border-radius:99px;padding:7px 13px;color:#e9c88e;font-size:13px}.trait{margin:16px 0}.trait .row{display:flex;justify-content:space-between;margin-bottom:6px}.track{height:9px;border-radius:9px;background:#354055;overflow:hidden}.fill{height:100%;border-radius:9px;background:linear-gradient(90deg,#728cba,#e5c58a)}.person{border:1px solid #435067;border-radius:16px;padding:18px;margin:14px 0;background:#202d43}.person .rank{color:#eac88b;font-size:13px}.person h3{margin:7px 0}.note{border-left:3px solid #d9b77c;padding:10px 16px;background:#222d3e;color:#c8d1de;line-height:1.8}.small{font-size:13px;color:#aab5c7;line-height:1.8}footer{font-size:12px;color:#8593a9;margin-top:32px;text-align:center}canvas{max-width:100%;display:block;margin:auto}.hidden{display:none} @media(max-width:520px){.panel{padding:20px}.actions .btn{flex:1}h2{font-size:23px}}
 .profile{margin-top:24px;padding:18px;border:1px solid #43506a;border-radius:16px;background:#111a2b}.profile h3{margin:0 0 10px}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.profile label{display:block;font-size:14px;color:#d4dbea;margin:10px 0 7px}.profile select{width:100%;background:#26344a;color:#fff;border:1px solid #596780;border-radius:10px;padding:12px;font:inherit}.profile small{color:#aab5c7;line-height:1.6;display:block;margin-top:12px}@media(max-width:520px){.profile-grid{grid-template-columns:1fr}}  .compare{margin-top:14px;padding:12px 14px;background:#18243a;border:1px solid #3d4b66;border-radius:12px}.compare p{margin:7px 0;line-height:1.7}.compare .small{font-size:12px;color:#aebbd0} 
 .person-fold{margin-top:14px;border:1px solid #44516b;border-radius:14px;background:#152035;overflow:hidden}
@@ -323,32 +323,63 @@ function linesOf(g,text,maxWidth){let lines=[],line='';for(const c of String(tex
 function multiline(g,text,x,y,width,font,color,lineHeight,maxLines=4){g.font=font;g.fillStyle=color;const lines=linesOf(g,text,width).slice(0,maxLines);lines.forEach((line,i)=>g.fillText(line,x,y+i*lineHeight));return y+lines.length*lineHeight}
 function panel(g,x,y,w,h){rounded(g,x,y,w,h,22);g.fillStyle='rgba(255,255,255,.93)';g.fill();g.strokeStyle='#e8e2d7';g.lineWidth=1;g.stroke()}
 function portraitPanel(g,img,p,x,y,w,h){g.save();rounded(g,x,y,w,h,18);g.clip();g.fillStyle='#e9e2d5';g.fillRect(x,y,w,h);if(img){const scale=Math.max(w/img.width,h/img.height),iw=img.width*scale,ih=img.height*scale;g.drawImage(img,x+(w-iw)/2,y+(h-ih)/2,iw,ih)}else{g.fillStyle='#c8b898';g.beginPath();g.arc(x+w*.5,y+h*.42,72,0,Math.PI*2);g.fill();g.fillStyle='#5a6571';g.font='bold 44px serif';g.textAlign='center';g.fillText(p.name.slice(0,3),x+w*.5,y+h*.45);g.textAlign='left'}g.restore()}
-async function makeShareCard(t,p){const c=document.createElement('canvas');c.width=900;c.height=1500;const g=c.getContext('2d');const portrait=await loadHistoricalPortrait(p);
- g.fillStyle='#f7f2e9';g.fillRect(0,0,900,1500);
- // ink-wash inspired landscape, subdued behind text
- g.fillStyle='#e7d4b0';g.beginPath();g.arc(745,160,90,0,Math.PI*2);g.fill();
- for(let k=0;k<3;k++){g.beginPath();g.moveTo(0,420+k*42);for(let x=0;x<=900;x+=15){g.lineTo(x,385+k*45+Math.sin(x*.009+k)*32+Math.sin(x*.021+k)*15)}g.lineTo(900,565);g.lineTo(0,565);g.closePath();g.fillStyle=['#cdd7d3','#e0e5dd','#eaeae1'][k];g.fill()}
- fittedText(g,'HISTORICAL ECHOES · 历史回响',46,66,805,30,24,'bold','serif','#193758');
- g.font='22px sans-serif';g.fillStyle='#9a7641';g.fillText('24题 · 历史人物人格探索',48,112);
- // Header: fixed zones prevent overlap for long Western names
- panel(g,38,142,824,425);portraitPanel(g,portrait,p,555,165,281,335);
- const nameWidth=462;const nameSize=fittedText(g,p.name,63,246,nameWidth,65,27,'bold','serif','#173658');
- g.fillStyle='#62758a';g.font='28px sans-serif';const labelLines=linesOf(g,p.label,455).slice(0,2);labelLines.forEach((line,i)=>g.fillText(line,65,302+i*37));
- const quote=SHARE_QUOTES[p.name],q=quote?quote[0]:SHARE_THEMES[Array.from(p.name).reduce((n,c)=>n+c.charCodeAt(0),0)%SHARE_THEMES.length];
- multiline(g,'「'+q+'」',65,410,460,'bold 27px serif','#253d52',40,3);
- const source=quote?'—— '+quote[1]:'—— 原创主题寄语';multiline(g,source,65,524,460,'18px sans-serif','#937043',28,1);
- g.font='16px sans-serif';g.fillStyle='#65727c';g.fillText(portrait?'历史人物资料肖像 · 来源：维基百科':'暂无可用的历史人物肖像',559,530);
- panel(g,38,588,824,302);
- g.fillStyle='#193758';g.font='bold 30px serif';g.fillText('匹配分',65,651);
- fittedText(g,String(p.score),66,772,210,116,90,'bold','serif','#18599b');g.font='26px sans-serif';g.fillStyle='#8794a1';g.fillText('/ 100',248,767);
- g.font='22px sans-serif';g.fillStyle='#536b82';g.fillText('人物参考 MBTI：'+p.mbti,65,821);g.fillText('我的 MBTI：'+(profile.mbti||'未填写'),65,859);
- shareRadar(g,t,p,677,724,116);g.font='18px sans-serif';g.fillStyle='#2b65a5';g.fillText('● 我的得分',540,865);g.fillStyle='#b18a4e';g.fillText('● 人物参考',695,865);
- panel(g,38,909,824,191);g.fillStyle='#193758';g.font='bold 30px serif';g.fillText('我的突出倾向',65,966);
- const dims=t.map((v,i)=>({v,i})).sort((a,b)=>b.v-a.v).slice(0,3);multiline(g,dims.map(x=>NAMES[x.i]+' '+x.v).join('  ·  '),65,1025,770,'25px sans-serif','#4b6682',38,2);
- panel(g,38,1120,824,194);g.fillStyle='#193758';g.font='bold 30px serif';g.fillText('历史人物带给我的启发',65,1178);
- multiline(g,'欣赏相似的精神，也走出属于自己的道路。',65,1240,770,'26px serif','#6b665e',42,2);
- g.fillStyle='#75828a';g.font='20px sans-serif';g.fillText('探索性娱乐结果 · 非科学心理诊断',45,1390);g.font='17px sans-serif';g.fillText('历史人物 MBTI 与八维分数均为推测性参考画像',45,1430);
- // No website address on the exported image.
+async function makeShareCard(t,p){
+ const c=document.createElement('canvas');c.width=1000;c.height=1500;const g=c.getContext('2d');
+ try{await document.fonts.ready}catch(e){}
+ const portrait=await loadHistoricalPortrait(p);
+ const navy='#142f4c',gold='#bb9353',muted='#53687b',paper='#f8f4ea';
+ const serif='"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",serif';
+ const sans='"PingFang SC","Microsoft YaHei",sans-serif';
+ g.fillStyle=paper;g.fillRect(0,0,1000,1500);
+ // Subtle paper grain; repeatable deterministic speckling.
+ for(let i=0;i<950;i++){const x=(i*673)%1000,y=(i*317)%1500;g.fillStyle=i%3?'rgba(115,92,64,.025)':'rgba(82,112,130,.022)';g.fillRect(x,y,2,2)}
+ // Soft ink mountains and sun, kept away from main information blocks.
+ g.fillStyle='rgba(216,176,103,.30)';g.beginPath();g.arc(762,185,94,0,Math.PI*2);g.fill();
+ function mountains(y,amp,color,phase){g.beginPath();g.moveTo(0, y+70);for(let x=0;x<=1000;x+=10)g.lineTo(x,y+Math.sin(x*.009+phase)*amp+Math.sin(x*.021+phase)*amp*.38);g.lineTo(1000,y+115);g.lineTo(0,y+115);g.closePath();g.fillStyle=color;g.fill()}
+ mountains(380,46,'rgba(150,171,173,.17)',0.7);mountains(425,28,'rgba(156,171,163,.14)',2);
+ // Plum blossom sprig at upper left and bamboo-like strokes at right.
+ g.strokeStyle='rgba(86,96,80,.48)';g.lineWidth=3;g.beginPath();g.moveTo(0,120);g.bezierCurveTo(72,120,62,36,180,0);g.stroke();
+ for(let i=0;i<13;i++){let x=12+(i*31)%168,y=105-(i*41)%103;g.fillStyle=i%2?'#d7a4a0':'#e6b4a6';for(let j=0;j<5;j++){let an=j*Math.PI*2/5;g.beginPath();g.arc(x+Math.cos(an)*6,y+Math.sin(an)*6,4.3,0,Math.PI*2);g.fill()}}
+ g.fillStyle=navy;g.font=`bold 27px ${serif}`;g.fillText('HISTORICAL ECHOES · 历史回响',78,64);
+ g.font=`18px ${serif}`;g.fillText('24题历史人物人格探索',80,98);
+ g.textAlign='right';g.font=`17px ${serif}`;g.fillStyle=muted;g.fillText('在历史的长河中',937,55);g.fillText('遇见另一个自己',937,82);g.textAlign='left';
+ // Portrait and name hero: separate fixed columns to prevent overlap.
+ const px=555,py=128,pw=384,ph=358;
+ portraitPanel(g,portrait,p,px,py,pw,ph);
+ g.fillStyle=navy;
+ const nameSize=fittedText(g,p.name,78,220,440,76,31,'bold',serif,navy);
+ g.font=`27px ${serif}`;g.fillStyle=navy;multiline(g,p.label,80,276,450,`27px ${serif}`,navy,35,2);
+ const quote=SHARE_QUOTES[p.name];const q=quote?quote[0]:SHARE_THEMES[Array.from(p.name).reduce((n,ch)=>n+ch.charCodeAt(0),0)%SHARE_THEMES.length];
+ g.fillStyle=navy;const qy=370;multiline(g,'「'+q+'」',78,qy,440,`bold 25px ${serif}`,navy,37,3);
+ g.font=`17px ${serif}`;g.fillStyle='#8b6e43';g.fillText(quote?'—— '+quote[1]:'—— 原创主题寄语',80,475);
+ g.font=`13px ${sans}`;g.fillStyle=muted;g.fillText(portrait?'人物资料肖像 · 维基百科':'暂无经核实的人物肖像',px+4,506);
+ // Main paired score and radar panels.
+ panel(g,38,533,447,343);panel(g,500,533,462,343);
+ g.fillStyle=navy;g.font=`bold 29px ${serif}`;g.fillText('匹配分',65,590);
+ fittedText(g,String(p.score),70,708,245,117,90,'bold',serif,'#165799');g.fillStyle='#89939d';g.font=`24px ${sans}`;g.fillText('/100',274,701);
+ g.fillStyle='#f4ead7';rounded(g,63,736,393,105,16);g.fill();
+ g.fillStyle=muted;g.font=`17px ${serif}`;g.fillText('人物参考 MBTI',84,769);g.fillText('我的 MBTI',284,769);
+ g.font=`bold 28px ${serif}`;g.fillStyle=navy;g.fillText(p.mbti,98,812);g.fillStyle='#55539b';g.fillText(profile.mbti||'未填写',292,812);
+ g.fillStyle=navy;g.font=`bold 26px ${serif}`;g.fillText('八维人格对比',522,582);
+ shareRadar(g,t,p,733,727,119);
+ g.font=`16px ${sans}`;g.fillStyle='#2767a7';g.fillText('● 我的得分',545,850);g.fillStyle=gold;g.fillText('● 人物参考',731,850);
+ // Traits section with three equal chips.
+ panel(g,38,895,924,158);g.fillStyle=navy;g.font=`bold 27px ${serif}`;g.fillText('我的突出倾向',65,940);
+ const dims=t.map((v,i)=>({v,i})).sort((a,b)=>b.v-a.v).slice(0,3);
+ const fills=['#f5ebd7','#e7efe6','#e6edf6'];const nums=['#a67b2d','#497c56','#2362a5'];
+ dims.forEach((d,i)=>{let x=65+i*300;rounded(g,x,959,277,70,16);g.fillStyle=fills[i];g.fill();g.fillStyle=navy;g.font=`20px ${serif}`;g.fillText(NAMES[d.i],x+16,989);g.fillStyle=nums[i];g.font=`bold 28px ${serif}`;g.fillText(String(d.v),x+200,1011)});
+ // Bottom editorial columns like the reference mockup, not a long single card.
+ const cy=1071,ch=337;panel(g,38,cy,289,ch);panel(g,339,cy,290,ch);panel(g,641,cy,321,ch);
+ g.fillStyle=navy;g.font=`bold 23px ${serif}`;g.fillText('历史人物简介',57,1117);g.fillText('经典名言',360,1117);g.fillText('人物启示',663,1117);
+ function fitParagraph(text,x,y,w,maxLines,lh=29){g.font=`18px ${serif}`;g.fillStyle=navy;const lines=linesOf(g,text,w);lines.slice(0,maxLines).forEach((line,i)=>g.fillText(line,x,y+i*lh));if(lines.length>maxLines){g.fillText('……',x,y+maxLines*lh)}}
+ fitParagraph(p.about||p.label,57,1160,247,7,31);
+ const words=quote?[quote[0],quote[1]]:[q,'原创主题寄语'];
+ fitParagraph('「'+words[0]+'」',360,1170,248,4,34);g.font=`16px ${serif}`;g.fillStyle='#9b794a';g.fillText('—— '+words[1],360,1334);
+ const advice=typeof characterAdvice==='function'?characterAdvice(p,t).grow:'欣赏相似的精神，也走出属于自己的道路。';
+ fitParagraph(advice,663,1160,275,7,31);
+ g.fillStyle='#71808c';g.font=`16px ${serif}`;g.fillText('探索性娱乐结果 · 非科学心理诊断',40,1456);
+ g.textAlign='right';g.fillStyle=navy;g.font=`bold 17px ${serif}`;g.fillText('HISTORICAL ECHOES · 历史回响',960,1456);g.textAlign='left';
+ // No URL is rendered anywhere on the card.
  return c;
 }
 async function exportShareCard(t,p){const status=$('#status');try{const c=await makeShareCard(t,p);const blob=await new Promise(resolve=>c.toBlob(resolve,'image/png'));if(!blob)throw Error('图片生成失败');const file=new File([blob],'历史回响-'+p.name+'-分享卡.png',{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){await navigator.share({files:[file],title:'我的历史回响人格结果'});status.textContent='已打开系统分享菜单。';return;}const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);status.textContent='分享卡已生成。如果手机未保存，请用 Safari 打开网页。';}catch(e){if(e.name!=='AbortError')status.textContent='生成失败：'+e.message;}}
